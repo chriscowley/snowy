@@ -7,6 +7,7 @@
 # STOP STOP STOP STOP STOP STOP STOP STOP
 
 import os.path
+import dj_database_url
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 DEBUG = False
@@ -18,16 +19,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': '',          # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',            # Or path to database file if using sqlite3.
-        'USER': '',            # Not used with sqlite3.
-        'PASSWORD': '',        # Not used with sqlite3.
-        'HOST': '',            # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': ''             # Set to empty string for default. Not used with sqlite3.
-    }
-}
+# Parse database configuration from env $DATABASE_URL variable
+DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 
 RECAPTCHA_ENABLED = False
 RECAPTCHA_PUBLIC_KEY = ''

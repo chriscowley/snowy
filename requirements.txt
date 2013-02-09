@@ -1,0 +1,14 @@
+Django==1.2
+South==0.7.6
+argparse==1.2.1
+dj-database-url==0.2.1
+lxml==3.1beta1
+psycopg2==2.4.6
+pysqlite==2.6.3
+python-dateutil==2.1
+python-openid==2.2.5
+pytz==2012h
+simplejson==2.6.2
+six==1.2.0
+uuid==1.30
+wsgiref==0.1.2
