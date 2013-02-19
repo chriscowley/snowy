@@ -43,12 +43,14 @@ urlpatterns = patterns('',
 
 from django.conf import settings
 
-if settings.DEBUG:
-    urlpatterns += patterns('',
-        (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {
-            'document_root': settings.MEDIA_ROOT,
-            'show_indexes': True
-        }))
+# allow serving static assets all the time,
+# not the best way to do this in prod environments
+urlpatterns += patterns('',
+    (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {
+        'document_root': settings.MEDIA_ROOT,
+        'show_indexes': False
+    })
+)
 
 # OAuth
 urlpatterns += patterns('piston.authentication',
