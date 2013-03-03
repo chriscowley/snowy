@@ -2,53 +2,47 @@ Running Snowy From Your Git Checkout
 --
 -1. Verify that your checkout is called "snowy" (all lower-case).
 
-0. Install python-lxml, python-pytz, and python-sqlite, South,
-   python-dateutil, python-pkg-resources, python-uuid, python-simplejson
-   (or on Python 2.6 possibly python-json), python-openid >= 2.2.4,
-   (package names somewhat different from distro to distro. you may have luck
-    finding more specific info at http://live.gnome.org/Snowy/Install ).
+0. Install required packages via `pip -r requirement.txt`
+    NOTE: recommend using a virtualenv
 
-1. Install django 1.2. If your distro does not have packages for 1.2,
-   then download the tarball and install it like so:
-	wget http://www.djangoproject.com/download/1.2/tarball/
-	tar zxvf Django-1.2.tar.gz
-	cd Django-1.2
-	sudo python setup.py install
+1. Install system package `python-pkg-resources`
+    (package names may be somewhat different from distro to distro. you may
+     have luck finding more specific info at http://live.gnome.org/Snowy/Install)
 
 2. Set up your local settings file (in your snowy git checkout):
-	cp local_settings.py.in local_settings.py
+    cp local_settings.py.in local_settings.py
 
 3. Setup snowy database (in your snowy git checkout):
-	python manage.py syncdb
+    python manage.py syncdb
 
-	NOTE: Don't name your admin user 'admin'
+    NOTE: Don't name your admin user 'admin'
 
 4. Start mail debugging server (in your snowy git checkout):
-	python manage.py debugmail
+    python manage.py debugmail
 
-	NOTE: This is only needed if Snowy needs to send mails (like in the
-	case of user registration) and you don't have an SMTP server set up.
+    NOTE: This is only needed if Snowy needs to send mails (like in the
+    case of user registration) and you don't have an SMTP server set up.
 
 5. Start local snowy (in your snowy git checkout):
-	python manage.py runserver
+    python manage.py runserver
 
 6. Admin your snowy:
-	http://localhost:8000/admin
+    http://localhost:8000/admin
 
-	- In the Sites table, make sure to edit the existing example.com and
-	set the domain and name properly, e.g.:
+    - In the Sites table, make sure to edit the existing example.com and
+    set the domain and name properly, e.g.:
 
-		Domain name:  localhost:8000
-		Display name: Snowy
+        Domain name:  localhost:8000
+        Display name: Snowy
 
-	- In the Consumers table, make sure the 'anyone' consumer is set up:
+    - In the Consumers table, make sure the 'anyone' consumer is set up:
 
-	        Key: anyone
-		Secret: anyone
-		Status: Accepted
+        Key: anyone
+        Secret: anyone
+        Status: Accepted
 
 7. Play with snowy:
-	http://localhost:8000/myusername/notes (for example)
+    http://localhost:8000/myusername/notes
 
 
 Installing/Deploying Snowy
